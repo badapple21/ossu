@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <cs50.h>
+
+int main(void)
+{
+    int n = get_int("n: ");
+    //If n is even
+    if (n % 2 == 0)
+    {
+        printf("even\n");
+    }
+
+    //If n is odd
+    else
+    {
+        printf("odd\n");
+    }
+}

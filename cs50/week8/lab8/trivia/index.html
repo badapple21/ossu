@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            function wrong(){
+                alert("WRONG!");
+            }
+            function right(){
+                alert("CORRECT!");
+            }
+            function q2(){
+                let ans = document.querySelector("#answer").value;
+                if(ans=='25.4'){
+                    alert("CORRECT!");
+                }else{
+                    alert("WRONG!");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>Which method was not used to try to assiante Rassputin?</h3>
+
+                <form onsubmit="wrong(); return false;">
+                    <input type="submit" value="Posion">
+                </form>
+                <form onsubmit="right(); return false;">
+                    <input type="submit" value="Stab Him">
+                </form>
+                <form onsubmit="wrong(); return false;">
+                    <input type="submit" value="Shoot him">
+                </form>
+                <form onsubmit="wrong(); return false;">
+                    <input type="submit" value="drowning">
+                </form>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>How many mm are there in one inch</h3>
+                <form onsubmit="q2(); return false;">
+                    <input type="text" id="answer">
+                    <input type="submit">
+                </form>
+                <!-- TODO: Add free response question here -->
+            </div>
+        </div>
+    </body>
+</html>

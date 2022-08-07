@@ -1,0 +1,12 @@
+bubble
+    worst n^2
+    Avg n^2
+    best n
+selection
+    worst n^2
+    Avg n^2
+    best n^2
+merge
+    worst n log n
+    Avg n log n
+    best n log n 

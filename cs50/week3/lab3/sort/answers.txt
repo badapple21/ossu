@@ -1,0 +1,11 @@
+sort1 uses: Bubble
+
+How do you know?: bubble has a best case of n and a worst/best of n^2 so bubble should have similar values for random and reversed while its sorted should be radiclay lower then any other algo
+
+sort2 uses: Merge
+
+How do you know?: megre has n log n for all cases meaing it should have a low time for all of them
+
+sort3 uses: Selection
+
+How do you know?: selction has n^2 for all casees meiang it hsould have a high time for all 

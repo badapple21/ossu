@@ -1,0 +1,12 @@
+random5000
+    sort1 - 0.081(avg)
+    sort2 - 0.042(avg)
+    sort3 - 0.055(avg)
+sorted5000
+    sort1 - 0.034(avg) bubble
+    sort2 - 0.042(avg) merge 
+    sort3 - 0.068(avg) selection
+reversed5000
+    sort1 - 0.090(avg)
+    sort2 - 0.054(avg)
+    sort3 - 0.072(avg)
