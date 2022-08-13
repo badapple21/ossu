@@ -22,18 +22,18 @@ def get_permutations(sequence):
     Note: depending on your implementation, you may return the permutations in
     a different order than what is listed here.
     '''
-    possiblites = []
+    possiblities = []
 
     if(len(sequence)==1):
         return [sequence]
     else:
+        length = len(sequence)
         letter = sequence[0]
         sequence = sequence[1:]
         for possiblity in get_permutations(sequence):
-            for i in range(len(sequence)):
-                possiblities.append(insert_letter(i, sequence, letter))
-
-    return possiblites
+            for i in range(length):
+                possiblities.append(insert_letter(i, possiblity, letter))
+    return possiblities
 
 def insert_letter(place, string, letter):
     if(place==0): 
@@ -54,8 +54,10 @@ if __name__ == '__main__':
 #    sequence of length n)
     
 #unit test for insert_letter
-#   print(insert_letter(0, "ust", "b"))
+#   print(insert_letter(0, "ust", "b"))\
 #   print(insert_letter(1, "ust", "b"))
 #   print(insert_letter(2, "ust", "b"))
 
     print(get_permutations("abc"))
+    print(get_permutations("bust"))
+    print(get_permutations("ab"))

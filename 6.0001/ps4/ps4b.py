@@ -70,7 +70,7 @@ class Message(object):
             self.message_text (string, determined by input text)
             self.valid_words (list, determined using helper function load_words)
         '''
-        pass #delete this line and replace with your code here
+        self.message_text = text
 
     def get_message_text(self):
         '''
@@ -78,7 +78,7 @@ class Message(object):
         
         Returns: self.message_text
         '''
-        pass #delete this line and replace with your code here
+        return str(self.message_text)
 
     def get_valid_words(self):
         '''
@@ -87,7 +87,7 @@ class Message(object):
         
         Returns: a COPY of self.valid_words
         '''
-        pass #delete this line and replace with your code here
+        return str(self.valid_words.copy())
 
     def build_shift_dict(self, shift):
         '''
@@ -103,7 +103,26 @@ class Message(object):
         Returns: a dictionary mapping a letter (string) to 
                  another letter (string). 
         '''
-        pass #delete this line and replace with your code here
+        
+
+        lowercase = string.ascii_lowercase
+        
+        rtn = {}
+        
+        i = 0  
+        for letter in lowercase:
+            if i+shift >= 26:
+                place = 26 - i 
+                place = shift - place
+            else:
+                place = i + shift
+
+            rtn.update({letter: lowercase[place]})
+            i+=1
+
+        return rtn
+
+
 
     def apply_shift(self, shift):
         '''
@@ -117,93 +136,36 @@ class Message(object):
         Returns: the message text (string) in which every character is shifted
              down the alphabet by the input shift
         '''
-        pass #delete this line and replace with your code here
+        shift_dict = self.build_shift_dict(shift)
+        print(shift_dict)
 
-class PlaintextMessage(Message):
-    def __init__(self, text, shift):
-        '''
-        Initializes a PlaintextMessage object        
-        
-        text (string): the message's text
-        shift (integer): the shift associated with this message
+        rtn = ""
+        upper = False
 
-        A PlaintextMessage object inherits from Message and has five attributes:
-            self.message_text (string, determined by input text)
-            self.valid_words (list, determined using helper function load_words)
-            self.shift (integer, determined by input shift)
-            self.encryption_dict (dictionary, built using shift)
-            self.message_text_encrypted (string, created using shift)
-
-        '''
-        pass #delete this line and replace with your code here
-
-    def get_shift(self):
-        '''
-        Used to safely access self.shift outside of the class
-        
-        Returns: self.shift
-        '''
-        pass #delete this line and replace with your code here
-
-    def get_encryption_dict(self):
-        '''
-        Used to safely access a copy self.encryption_dict outside of the class
-        
-        Returns: a COPY of self.encryption_dict
-        '''
-        pass #delete this line and replace with your code here
-
-    def get_message_text_encrypted(self):
-        '''
-        Used to safely access self.message_text_encrypted outside of the class
-        
-        Returns: self.message_text_encrypted
-        '''
-        pass #delete this line and replace with your code here
-
-    def change_shift(self, shift):
-        '''
-        Changes self.shift of the PlaintextMessage and updates other 
-        attributes determined by shift.        
-        
-        shift (integer): the new shift that should be associated with this message.
-        0 <= shift < 26
-
-        Returns: nothing
-        '''
-        pass #delete this line and replace with your code here
+        for letter in self.message_text:
+            if letter.isupper():
+                upper = True
+            else:
+                upper = False
+            letter = letter.lower()
+            if letter == " ":
+                rtn+=" "
+            else:
+                if upper:
+                    rtn+=shift_dict[letter].upper()
+                else:
+                    rtn+=shift_dict[letter]
 
 
-class CiphertextMessage(Message):
-    def __init__(self, text):
-        '''
-        Initializes a CiphertextMessage object
-                
-        text (string): the message's text
+        return rtn
 
-        a CiphertextMessage object has two attributes:
-            self.message_text (string, determined by input text)
-            self.valid_words (list, determined using helper function load_words)
-        '''
-        pass #delete this line and replace with your code here
+def foo(word):
+    rtn = ""
+    for i in range(0, 27):
+        bar = message("bas")
+        d = bar.build_shift_dict(i)
+        :w
 
-    def decrypt_message(self):
-        '''
-        Decrypt self.message_text by trying every possible shift value
-        and find the "best" one. We will define "best" as the shift that
-        creates the maximum number of real words when we use apply_shift(shift)
-        on the message text. If s is the original shift value used to encrypt
-        the message, then we would expect 26 - s to be the best shift value 
-        for decrypting it.
-
-        Note: if multiple shifts are equally good such that they all create 
-        the maximum number of valid words, you may choose any of those shifts 
-        (and their corresponding decrypted messages) to return
-
-        Returns: a tuple of the best shift value used to decrypt the message
-        and the decrypted message text using that shift value
-        '''
-        pass #delete this line and replace with your code here
 
 if __name__ == '__main__':
 
@@ -220,5 +182,12 @@ if __name__ == '__main__':
     #TODO: WRITE YOUR TEST CASES HERE
 
     #TODO: best shift value and unencrypted story 
-    
-    pass #delete this line and replace with your code here
+   
+   # build_shift_dict unit test
+   # M = Message("Hello")
+   # print(M.build_shift_dict(2))
+   # print(M.build_shift_dict(2))
+
+   #apply shift unit test
+    # M = Message("Hello")
+   #print(M.apply_shift(1))
