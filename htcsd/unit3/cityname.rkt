@@ -1,0 +1,27 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname cityname) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f () #f)))
+
+
+;; CityName is string
+;; interp. the name of a city
+(define CN1 "Boston")
+(define CN2 "Vancoucer")
+
+;(define (fn-for-city-name cn)
+;  (... cn))
+
+;; Template Rules used
+;; - atomic  non-disticnt: rule
+
+;;CityName -> Boolean
+;; produce true if the given city name is Hogsmeade
+(check-expect (Best? "Boston") false)
+(check-expect (Best? "Hogsmeade") true)
+
+;;(define (Best? cn) false)  ;stub
+
+; took teamplate from cityName
+
+(define (Best? cn)
+  (string=? cn "Hogsmeade"))
