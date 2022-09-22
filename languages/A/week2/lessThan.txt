@@ -1,0 +1,11 @@
+syntax:
+    e3 = e1 < e2
+    = and < are keywords/symbols
+    e1, e2, e3, are subexpressions 
+
+Type-checking:
+    e3 will be a bool
+    e1 and e2 must both be int
+
+Evalualtion: 
+    e3 will evaluate to a bool
